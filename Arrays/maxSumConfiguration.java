@@ -25,7 +25,16 @@
 
 
 public class maxSumConfiguration {
-    int max_sum(int A[], int n)
+
+
+    public static void main(String args[] ){
+        int [] arr = new int[] {8, 3, 1, 2};
+
+
+        System.out.println(max_sum(arr, 4));
+    }
+
+    public static int max_sum(int A[], int n)
     {
         int sum =0;
 	    for(int i=0;i<n;i++){
@@ -44,6 +53,7 @@ public class maxSumConfiguration {
 	        if(nextSum > max){
 	            max = nextSum;
 	        }
+            currSum = nextSum;
 	    }
 	    
 	    return max;
