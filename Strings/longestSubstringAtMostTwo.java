@@ -21,32 +21,63 @@ public class longestSubstringAtMostTwo {
         System.out.println(longestSubstring(""));
     }
 
-    public static int longestSubstring(String str){
-        if(str.length() == 0) return 0;
-        int l=0;
-        int count =0;
-        int max = 0;
-        int [] arr = new int[128];
+    // public static int longestSubstring(String str){
+    //     if(str.length() == 0) return 0;
+    //     int l=0;
+    //     int count =0;
+    //     int max = 0;
+    //     int [] arr = new int[128];
 
-        for(int r=0; r<str.length(); r++){
-            if(arr[str.charAt(r)]++ == 0)  count++;   //self written :)
+    //     for(int r=0; r<str.length(); r++){
+    //         if(arr[str.charAt(r)]++ == 0)  count++;   //self written :)
 
-            if(count == 3){
-                while(arr[str.charAt(l)] !=1 ){
-                    arr[str.charAt(l)]--;
-                    l++;
-                }
-                l++;
-                count = 2;
-            }
+    //         if(count == 3){
+    //             while(arr[str.charAt(l)] !=1 ){
+    //                 arr[str.charAt(l)]--;
+    //                 l++;
+    //             }
+    //             l++;
+    //             count = 2;
+    //         }
 
-            if(r-l+1 > max){
-                max = r-l+1;
-            }
+    //         if(r-l+1 > max){
+    //             max = r-l+1;
+    //         }
             
-        }
-        return max;
+    //     }
+    //     return max;
 
-    }
+    // }
     
+    public static int longestSubstring(String str){
+            if(str.length() == 0) return 0;
+            int l=0;
+            int count =0;
+            int max = 0;
+            int [] arr = new int[128];
+    
+            for(int r=0; r<str.length(); r++){
+                if(arr[str.charAt(r)]++ == 0)  count++;   //self written :)
+    
+                if(count == 3){
+                    while(arr[str.charAt(l)] !=1 ){
+                        arr[str.charAt(l)]--;
+                        l++;
+                    }
+                    l++;
+                    count = 2;
+                }
+    
+                if(r-l+1 > max){
+                    max = r-l+1;
+                }
+                
+            }
+            return max;
+    
+        }
+        
+
+
+
 }
